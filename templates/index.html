@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>CoachKat</title>
+  
+  <!-- Google Fonts for professional typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS for styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body class="relative min-h-screen overflow-x-hidden text-gray-900">
+  <!-- Background decorative layers -->
+  <div class="fixed inset-0 -z-10 bg-gradient-to-br from-purple-100 via-pink-50 to-indigo-100"></div>
+  <div class="fixed inset-0 -z-10 opacity-[0.03] pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 /%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22 /%3E%3C/svg%3E'); background-size: 200px 200px;"></div>
+  
+  <!-- Radial gradient accents for visual depth -->
+  <div class="fixed top-0 left-1/4 w-[32rem] h-[32rem] bg-purple-300/40 rounded-full blur-3xl -z-10"></div>
+  <div class="fixed bottom-0 right-1/4 w-[32rem] h-[32rem] bg-indigo-300/40 rounded-full blur-3xl -z-10"></div>
+  <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-pink-200/25 dark:bg-pink-900/10 dark:opacity-70 rounded-full blur-3xl -z-10"></div>
+  <header class="max-w-[1280px] mx-auto p-6">
+    <div class="flex items-center justify-between">
+      <div class="flex-1"></div>
+
+      <div class="flex-1 text-center">
+        <h1 class="text-4xl font-extrabold">Coach Kat</h1>
+        <p class="text-xl text-gray-400 mt-1">Personal Training</p>
+      </div>
+
+      <div class="flex-1 flex items-center justify-end">
+        <button id="themeToggle" type="button" class="text-sm px-3 py-1 rounded bg-gradient-to-r from-purple-500 to-indigo-500 text-white">Toggle theme</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-[1280px] mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+    <!-- Image with subtle spotlight -->
+    <section class="lg:col-span-3 relative">
+      <!-- Spotlight behind image -->
+      <div class="absolute inset-0 flex items-center justify-center -z-10">
+        <div class="w-full max-w-2xl h-full bg-gradient-radial from-purple-200/30 via-transparent to-transparent blur-2xl"></div>
+      </div>
+      <div class="max-w-2xl mx-auto px-6">
+        <img src="/static/images/freepik__background__9288.png" alt="Coach Kat" class="w-full h-auto rounded-lg" />
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="lg:col-span-3 md:-mt-12 lg:-mt-38">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-xl font-semibold mb-2">About</h2>
+      <div class="text-sm leading-relaxed space-y-3">
+        <p>If you train too hard, you might derail your career. At least, that’s what happened to me.</p>
+
+        <p>Being interested in virtually every subject in school, I was quite lost when presented with the challenge of building a career after graduation. Still unsure of my next move throughout my first degree, I looked out for unique job experiences, and coached the BIS swim team. Those two seasons changed everything.</p>
+
+        <p>Until this point, I had already been self-coaching the sports I’d done at school and learning more about physiology, sports psychology, and training theory. Coaching others made it clear what motivated me, and became my coaching philosophy: sharing the joy of movement. Or, if you ask my LinkedIn: “creating and facilitating positive experiences, at any level of experience and physical fitness, centred around enjoying the process of pushing one’s physical and mental limits through the medium of physical exercise”.</p>
+
+        <p>Through my studies at the German Sport University, I am now actively pursuing my ultimate goal of closing the gap in menopause research and helping women and afab get strong (and stay that way!). But I haven’t forgotten where it all started, being deeply motivated as a coach to support others to become the strongest, most confident version of themselves. Parallel to my studies, I am a personal trainer, specialising in strength training for pre-, peri-, and post-menopausal women.</p>
+
+        <p>So if you are (or someone you love is) a woman: are you ready to get strong and stay that way through menopause and beyond? If so, I’d love to support that journey.</p>
+      </div>
+      </div>
+    </section>
+    
+  <!-- Video Library Section -->
+  <section class="lg:col-span-3">
+      <div class="flex items-center justify-center mb-10">
+        <h2 class="text-2xl font-bold">Video Library</h2>
+      </div>
+      <!-- Videos are loaded dynamically from the database via JavaScript -->
+      <div id="videoList" class="flex flex-col md:flex-row md:flex-wrap justify-center items-start gap-8 mx-auto max-w-4xl">
+        <!-- Videos will be loaded here as inline video elements -->
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="lg:col-span-3 glass-card rounded-xl p-5">
+      <h2 class="text-xl font-semibold">Contact Request</h2>
+      <form id="contactForm" class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-3">
+        <!-- Screen reader only labels for accessibility -->
+        <label class="sr-only" for="name">Name</label>
+        <input id="name" name="name"  class="border rounded px-3 py-2" placeholder="Your name" required />
+
+        <label class="sr-only" for="email">Email</label>
+        <input id="email" name="email" type="email" class="border rounded px-3 py-2" placeholder="Email" required />
+
+        <label class="sr-only" for="message">Message</label>
+        <textarea id="message" name="message" class="border rounded px-3 py-2 md:col-span-2" placeholder="What do you need help with?" required></textarea>
+
+        <button type="submit" class="bg-black text-white rounded px-4 py-2 md:col-span-1">Send</button>
+      </form>
+      <!-- Status message shown after form submission -->
+      <p id="contactStatus" class="text-sm mt-2" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <!-- Location Section -->
+  <section id="find-us" class="mt-8 max-w-[1280px] mx-auto p-6">
+    <h3 class="text-lg font-semibold">Find Me</h3>
+    <button id="showLocationBtn" type="button" class="mt-2 inline-block px-4 py-2 rounded bg-purple-600 text-white">Show location</button>
+    <!-- Google Maps embed will be loaded here when button is clicked -->
+    <div id="mapContainer" class="mt-4 w-full"></div>
+  </section>
+
+  <!-- Main JavaScript file -->
+  <script src="/static/js/script.js"></script>
+</body>
+</html>
