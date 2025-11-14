@@ -49,6 +49,8 @@ async function loadVideos() {
       const videoEl = document.createElement('video');
       videoEl.src = v.url;
       videoEl.controls = true;
+      videoEl.controlsList = ''; // Enable all controls including Picture-in-Picture
+      videoEl.disablePictureInPicture = false; // Explicitly enable PiP
       videoEl.className = 'rounded-lg w-full';
       videoEl.style.maxHeight = '500px';
       videoEl.style.objectFit = 'contain';
