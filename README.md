@@ -2,7 +2,7 @@
 
 A modern, responsive personal training web application built with Flask and vanilla JavaScript.
 
-## 🛠️ Technologies
+## Technologies
 
 - **Front-end**: HTML, Tailwind CSS, JavaScript
 - **Back-end**: Flask (Python)
@@ -46,13 +46,13 @@ python backend/db_init.py
 python backend/app.py
 ```
 
-## 📡 API Endpoints
+## API Endpoints
 
 - `GET /` - Main page
 - `GET /api/videos` - Fetch videos
 - `POST /api/contact` - Submit contact form
 
-## 📊 Database
+## Database
 
 **videos**: id, title, url, durationSeconds, published_at  
 **messages**: id, name, email, message, created_at
